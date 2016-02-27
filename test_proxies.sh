@@ -4,8 +4,8 @@
 pushd `dirname $0` > /dev/null
 parent_directory=`pwd`
 popd > /dev/null
-proxy_list=`cat $parent_directory/proxy_urls`
-urls_list=`cat $parent_directory/domain_urls`
+proxy_list=`cat $parent_directory/proxy_urls | tr -d "\r"`
+urls_list=`cat $parent_directory/domain_urls | tr -d "\r"`
 mon_url="http://statreceiver.hrenbet.com"
 curl_options="--max-time 3 --retry 2 --retry-delay 2"
 src_ip=`curl ifconfig.io`
