@@ -1,4 +1,5 @@
 #!/bin/bash
+
 #Definition variables
 pushd `dirname $0` > /dev/null
 parent_directory=`pwd`
