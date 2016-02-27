@@ -16,7 +16,6 @@ for proxy in $proxy_list; do
         proxy_hostname=`echo $proxy | cut -f 3 -d ":"`
         for url in $urls_list; do
                 cmd=`curl $curl_options --proxy $proxy_ip:$proxy_prt http://$url/robots.txt | grep -c fon`
-                echo -e $cmd
                 curl -i -XPOST "$mon_url/write?db=fbps" --data-binary "get,host_dmn=$url,host_proxy=$proxy_hostname,src_ip=$src_ip value=$cmd"
         done
 done
