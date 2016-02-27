@@ -8,13 +8,14 @@ popd > /dev/null
 hash_ext=".md5"
 hash_bin="md5sum"
 HASH_FILE_TEMPLATE="$parent_directory/checksumm/%SCRIPT_NAME%${hash_ext}"
-do_list="do.list"
+do_list="$parent_directory/do.list"
 ADM_PRIV_PREFIX="/bin/bash"
+
 
 #####set array
 declare flag_names=( "{run_once}" "{adm_priv}" )
 #####Instruction loop of script names
-for line in `cat do.list`; do
+for line in `cat $do_list`; do
 	#create command line to run
 	script_name=`echo $line | awk '{print $1}'`
 	cmd="$parent_directory/$script_name"
